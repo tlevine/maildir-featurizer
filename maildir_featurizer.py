@@ -1,4 +1,4 @@
-import pathlib, argparse, sys
+import pathlib, argparse, sys, datetime
 
 p = argparse.ArgumentParser(description = 'Get simple email features very quickly.')
 p.add_argument('maildir', nargs = '+', help = 'Maildir(s) to look at')
@@ -7,8 +7,15 @@ def features(p):
     '''
     :param pathlib.Path p: An email file
     '''
+    name = p.name.split(',')[0]
+    rawdate, delivery_identifier, rawhostname = name.split('.')
+    date = datetime.datetime.fromtimestamp(float(rawdate.replace('_', '.')))
     return {
-        'date': datetime.datetime.fromtimestamp(int(p.name.split('_')[0])),
+        'name': name,
+        'date': date,
+        'delivery_identifier': delivery_identifier,
+        'hostname': rawhostname,
+        'size': p.stat().st_size,
     }
 
 def messages(maildir):
