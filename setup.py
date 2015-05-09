@@ -7,9 +7,9 @@ setup(
     author = 'Thomas Levine',
     author_email = '_@thomaslevine.com',
     url = 'https://thomaslevine.com',
-    entry_points = {'console_scripts': ['maildir-featurier = maildir_featurizer:cli']},
+    entry_points = {'console_scripts': ['maildir-featurizer = maildir_featurizer:cli']},
     license = 'AGPL',
-    packages = ['maildir_featurizer'],
+    py_modules = ['maildir_featurizer'],
     classifiers=[
         'Programming Language :: Python :: 3.4',
     ],
