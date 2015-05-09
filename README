@@ -8,3 +8,7 @@ sensitive information in my dada portal.
 
 It implements only a subset of the maildir filename format.
 (http://cr.yp.to/proto/maildir.html).
+
+I use it like this to find only the emails I sent. ::
+
+    maildir_featurizer.py my-maildir/*/*/Sent/

@@ -39,4 +39,5 @@ def cli():
         for message in messages(maildir):
             w.writerow(message)
 
-cli()
+if __name__ == '__main__':
+    cli()
