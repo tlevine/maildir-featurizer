@@ -11,4 +11,14 @@ It implements only a subset of the maildir filename format.
 
 I use it like this to find only the emails I sent. ::
 
-    maildir_featurizer.py my-maildir/*/*/Sent/
+    ./maildir_featurizer.py my-maildir/*/*/Sent/
+
+Or, if you install it, ::
+
+    maildir-featurizer my-maildir/*/*/Sent/
+
+Or, from Python, which is how I really use it, ::
+
+    from maildir_featurizer import messages
+    for message in messages('my-maildir'):
+        print(message)
