@@ -1,4 +1,4 @@
-import pathlib, argparse, sys, datetime
+import pathlib, argparse, datetime
 
 p = argparse.ArgumentParser(description = 'Get simple email features very quickly.')
 p.add_argument('maildir', nargs = '+', help = 'Maildir(s) to look at')
@@ -31,8 +31,12 @@ def messages(maildir):
             yield from messages(child)
 
 def cli():
+    import sys, csv
+    f = ['name', 'date', 'delivery_identifier', 'hostname', 'size']
+    w = csv.DictWriter(sys.stdout, fieldnames = f)
+    w.writeheader()
     for maildir in p.parse_args().maildir:
         for message in messages(maildir):
-            print(message)
+            w.writerow(message)
 
 cli()
