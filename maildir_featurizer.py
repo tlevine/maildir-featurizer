@@ -11,7 +11,7 @@ def features(p):
     rawdate, delivery_identifier, rawhostname = name.split('.')
     date = datetime.datetime.fromtimestamp(float(rawdate.replace('_', '.')))
     return {
-        'name': name,
+    #   'name': name,
         'date': date,
         'delivery_identifier': delivery_identifier,
         'hostname': rawhostname,
@@ -32,7 +32,7 @@ def messages(maildir):
 
 def cli():
     import sys, csv
-    f = ['name', 'date', 'delivery_identifier', 'hostname', 'size']
+    f = ['date', 'delivery_identifier', 'hostname', 'size']
     w = csv.DictWriter(sys.stdout, fieldnames = f)
     w.writeheader()
     for maildir in p.parse_args().maildir:

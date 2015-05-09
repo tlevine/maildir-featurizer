@@ -5,3 +5,6 @@ As a side effect, the features reveal little private information.
 I made this for my dada portal; I wanted to be able to analyze my
 emails in the context of other things, but I didn't want to have
 sensitive information in my dada portal.
+
+It implements only a subset of the maildir filename format.
+(http://cr.yp.to/proto/maildir.html).
